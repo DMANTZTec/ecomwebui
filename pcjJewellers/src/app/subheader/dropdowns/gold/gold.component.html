@@ -1,0 +1,6 @@
+<li class="gold" (click)="getnaviagtionmenu()">
+  <a href="#" dropdown-toggle data-toggle="dropdown">Gold<i class="fa fa-angle-down down-angle" aria-hidden="true"></i></a>
+  <ul  *ngFor="let item of result.child_catalog"> <a href="#">  {{item.catalog_nm}}
+    <li><ng-container *ngFor="let subitem of item.child_catalog">{{subitem.catalog_nm}}</ng-container></li>
+  </a></ul>
+</li>

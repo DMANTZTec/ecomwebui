@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="assets/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+
+    <title>Dropdown</title>
+
+    <!-- Bootstrap Css -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <!-- Custom Css -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Font awesome-->
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<!------ Include the above in your HEAD tag ---------->
+<body>
+
+<!-- <div class="text-center"><h2>Bootstrap 4 Multilevel Dropdown Menu</h2></div>
+ -->
+<div id="menu_area" class="menu-area">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-light navbar-expand-lg mainmenu">
+                <span class="navbar-toggler-icon"></span>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto" >
+                       <!-- <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>-->
+                        <!--<li><a href="#">Link</a></li>-->
+                        <li  *ngFor="let dropdowns of NavigationList" class="dropdown" [attr.id]="'dropdowns'+NavigationList.catalog_id" [attr.value]="'catlogid'+NavigationList.catalog_id" (click)="getdatafromsrv()">
+                            <a class="dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{dropdowns.catalog_nm}}</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!--<li><a href="#">Action</a></li>-->
+                            <!--<li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>-->
+                            <li *ngFor="let childtems of dropdowns.child_catalog" class="dropdown">
+                                <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{childtems.catalog_nm}}</a>
+                                <ul  class="dropdown-menu" aria-labelledby="navbarDropdown">
+                               <!--<li ><a href="#"></a></li>-->
+                               <!-- <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>-->
+                               <li *ngFor="let subitems of childtems.child_catalog" >
+                                    <a  href="#" id="navbarDropdown" role="button" >{{subitems.catalog_nm}}</a>
+                                   <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                    </ul>-->
+                                </li>
+                                </ul>
+                            </li>
+                            </ul>
+                        </li>
+                        <!--<li><a href="#">Service</a></li>-->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+<!--<div class="refresh-block">
+    <ng-container *ngIf="refreshButtonNeeded()">
+      <button type="" [ngClass]="{'btn' : true, 'btn-icon' : true, 'btn-disabled' : !needsRefresh(), 'needs-refresh btn-action wiggle' : needsRefresh()}" (click)="getComboLabels().length > 0 && handleSelectedSBOptions($event)">
+        <i class="fa fa-refresh"></i>
+      </button>
+    </ng-container>
+  </div>-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!--  Include all compiled plugins (below), or include individual files as needed  -->
+    <script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- js file -->
+    <script src="assets/js/custom.js" type="text/javascript"></script>
+    
+</body>
+</html>
