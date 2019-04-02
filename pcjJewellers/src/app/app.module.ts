@@ -31,6 +31,10 @@ import { GoldComponent } from './subheader/dropdowns/gold/gold.component';
 import { SilverComponent } from './subheader/dropdowns/silver/silver.component';
 import { DiamondsComponent } from './subheader/dropdowns/diamonds/diamonds.component';
 import { DropdownitemsComponent } from './subheader/dropdowns/dropdownitems/dropdownitems.component';
+import { AlertService } from 'src/app/sharedServices/alert.service';
+import { AuthenticationService } from 'src/app/sharedServices/authentication.service';
+import { UserService } from 'src/app/sharedServices/user.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -63,9 +67,13 @@ import { DropdownitemsComponent } from './subheader/dropdowns/dropdownitems/drop
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatMenuModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+  providers: [
+    AlertService,
+    AuthenticationService,
+    UserService],
+    bootstrap: [AppComponent]
+  })
 export class AppModule { }

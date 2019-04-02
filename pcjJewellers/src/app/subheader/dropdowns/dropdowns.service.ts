@@ -3,62 +3,46 @@ import { Injectable } from '@angular/core';
 import { shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Hero, Gold,Child,NavigationList } from 'src/app/data/hero';
+import { Hero, Gold,Child,NavigationList, DropdownSvcParams } from 'src/app/data/hero';
 @Injectable({
   providedIn: 'root'
 })
 export class DropdownsService {
-  private _svcKpiHeatMapParams: DropdownSvcParams;
+  private _dropdownSvcParams: DropdownSvcParams;
   constructor(private _http: HttpClient) { }
-    getGold() {
-        return this._http.get<Gold[]>(environment.gold_url).pipe();
-        
-    }
+ 
 
-    getnaviagtionmenu(inputParams:DropdownSvcParams) {
-          this._svcKpiHeatMapParams = inputParams;
+  getnaviagtionmenu(inputParams:DropdownSvcParams) {
+    console.log(inputParams);
+    this. _dropdownSvcParams = inputParams;
     
     const httpBody = {
-      'startLevel': this._svcKpiHeatMapParams.startLevel,
-      'endLevel': this._svcKpiHeatMapParams.endLevel,
-      'storeId': this._svcKpiHeatMapParams.storeId,
-      'parentCatalogId':this._svcKpiHeatMapParams.parentCatalogId
+      'startLevel': this._dropdownSvcParams.startLevel,
+      'endLevel': this._dropdownSvcParams.endLevel,
+      'storeId': this._dropdownSvcParams.storeId,
+      'parentCatalogId':this. _dropdownSvcParams.parentCatalogId
      
     };
+    console.log(httpBody);
 
     const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' })
+     
+      headers :new HttpHeaders({
+       'Content-Type':'application/json',
+       'Accept':'application/json',
+       'responseType':'text',              
+       'Access-Control-Allow-Origin':'*',
+       'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+       'Access-Control-Allow-Headers':'Content-Type,application/json',
+       'Authorization':'my-auth-token'
+      
+      })
     };
-        //return this._http.post<NavigationList[]>(environment.navigation_url,httpBody,httpOptions).pipe();
-          return this._http.get<NavigationList[]>(environment.navigation_url).pipe();
+    console.log("service call");
+    console.log("result is",this._http.post<any>("http://localhost:8089/catalog_dir",httpBody,httpOptions).pipe());
+    return this._http.post<NavigationList[]>("http://localhost:8089/catalog_dir",httpBody,httpOptions).pipe();
           
-          }
-        //service call to get earrings
-        getEarrings(){
-         return  this._http.get(environment.Earrings_url).pipe();
-        }
-
-        //service call to newarrivals
-
-        getNewArrivals(){
-
-          return this._http.get<Hero[]>(environment.NewArrivals_url).pipe();
-        }
-
-        //service call to getgoldcoins
-
-        getGoldCoins(){
-          return this._http.get<Hero[]>(environment.goldcoins_url).pipe();
-        }
-
-
-
+  }
 
 }
 
-export class DropdownSvcParams{
-  startLevel:number;
-  endLevel:number;
-  storeId:number;
-  parentCatalogId:number;
-}

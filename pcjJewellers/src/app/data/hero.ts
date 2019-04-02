@@ -1,59 +1,80 @@
 export class Hero {
-
-	popularringstypes:any[];
-	bypricerange:any[];
-	bymetalandstones:any[];
-
 	
-	/*dailywear:string;
-	engagement:string;
-	couplebrands:string;*/		
-    
+		popularringstypes:any[];
+		bypricerange:any[];
+		bymetalandstones:any[];
 	
-}
-export class EarRings 
-{
-    popularearringstypes:any[];
-    bypricerange:any[];
-    bymetalandstones:any[];
-}
+		
+		/*dailywear:string;
+		engagement:string;
+		couplebrands:string;*/      
+		
+		
+	}
+	export class EarRings 
+	{
+		popularearringstypes:any[];
+		bypricerange:any[];
+		bymetalandstones:any[];
+	}
+	
+	export class NewArrivals
+	{
+		popularpendentstypes:any[];
+		bypricerange:any[];
+		bymetalandstones:any[];
+	
+	}
+	
+	export class GoldCoins{
+		byweight:any[];
+		bydesign:any[]
+	
+	}
+	export class NavigationList{
+		catalogName: string;
+		catalogId: number;
+		catalogDesc: string;
+		catalogLevel: number;
+		parentCatalogId: number;
+		childCatalog:any[];
+		storeId:number;
+	}
+	
+	export class Gold{
+		catalogName: string;
+		catalogId: number;
+		catalogDesc: string;
+		catalogLevel: number;
+		parentCatalogId: number;
+		childCatalog:Child;
+	
+	}
+	export class Child{
+		catalogName: string;
+		catalogId: number;
+		catalogDesc: string;
+		catalogLevel: number;
+		parentCatalogId: number;
+		childCatelog:any[];
+	}
+	export class User {
+		email_id: string;
+		password: string;
+		firstName: string;
+		lastName: string;
+	}
+	export class Response{
+		response:string;
+	}
+	export class DropdownSvcParams{
+		startLevel:number;
+		endLevel:number;
+		storeId:number;
+		parentCatalogId:number;
+	  }
 
-export class NewArrivals
-{
-	popularpendentstypes:any[];
-	bypricerange:any[];
-	bymetalandstones:any[];
-
-}
-
-export class GoldCoins{
-	byweight:any[];
-	bydesign:any[]
-
-}
-export interface NavigationList{
-	catalog_nm: string;
-    catalog_id: number;
-    catalog_desc: string;
-    catalog_level: number;
-    parent_catalog_id: number;
-    child_catalog:NavigationList[];
-}
-
-export class Gold{
-	catalog_nm: string;
-    catalog_id: number;
-    catalog_desc: string;
-    catalog_level: number;
-    parent_catalog_id: number;
-    child_catalog:Child;
-
-}
-export class Child{
-	catalog_nm: string;
-	catalog_id: number;
-	catalog_desc: string;
-	catalog_level: number;
-	parent_catalog_id: number;
-	child_catelog:any[];
-}
+	  export class Product {
+		id: number;
+		name: string;
+	  }
