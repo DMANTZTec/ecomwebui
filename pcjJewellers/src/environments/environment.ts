@@ -9,8 +9,9 @@ export const environment = {
   NewArrivals_url:"./assets/data/newarrivals.json",
   goldcoins_url:"./assets/data/goldcoins.json",
   gold_url:"./assets/data/gold.json",
- navigation_url:"./assets/data/newfile.json"
+ navigation_url:"./assets/data/newfile.json",
  //navigation_url:'http://localhost:8080/catalog_dir'
+ ProductListUrl:"./assets/data/productOutputCatalog.json"
 };
 
 /*

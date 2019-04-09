@@ -11,48 +11,92 @@ import { LoginComponent } from './subheader/login/login.component';
 import { RegisterComponent } from './subheader/register/register.component';
 import { CartComponent } from './subheader/cart/cart.component';
 import { FavoritesComponent } from './subheader/favorites/favorites.component';
-
+import { ProductListComponent } from 'src/app/Product/product-list/product-list.component';
+import { ProductTileComponent } from 'src/app/Product/product-list/product-tile/product-tile.component';
+import { AuthGuard } from 'src/app/auth.guard'
+import { HeaderComponent } from 'src/app/header/header.component';
+import { SubheaderComponent } from 'src/app/subheader/subheader.component';
+import { TabsComponent } from 'src/app/header/tabs/tabs.component';
+import { DropdownsComponent } from 'src/app/subheader/dropdowns/dropdowns.component';
+import { MainbodyComponent } from 'src/app/mainbody/mainbody.component';
 const appRoutes:Routes=[
   {
-    path:'CorporateGifting',
-  component:CorporategiftingComponent
-},
-{
-  path:'GiftCards',
-  component:GiftscardsComponent
-},
-{
-  path:'JflPayments',
-  component:JflpaymentsComponent
-},
-{
-  path:'StoreLocator',
-  component:StorelocatorComponent
-},
-{
-  path:'Corporate ',
-  component:CorporateComponent
-},
-{
-  path:'Investors',
-  component:InvestorsComponent
-},
-{
- path:'login',
- component:LoginComponent
-},
-{
-  path:'register',
-  component:RegisterComponent
-},
-{
-  path:'cart',
-  component:CartComponent
-},
-{
-  path:'favorites',
-  component:FavoritesComponent
-}
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'main'
+  },
+  {
+    path:"main",
+    component:MainbodyComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'header',
+     },
+     {
+      path: 'header',
+      component:HeaderComponent,
+      canActivate: [AuthGuard],
+      canActivateChild: [AuthGuard],
+      children:[
+        {
+          path:'',
+          pathMatch:'full',
+          redirectTo:'subheader'
+        },
+        {
+          path:'subheader',
+          component:SubheaderComponent,
+          canActivate: [AuthGuard],
+          canActivateChild: [AuthGuard],
+          children:[
+            {
+              path:'',
+              pathMatch:'full',
+              redirectTo:'products'
+            },
+            {
+              path:'products',
+              component:ProductListComponent,
+              canActivate: [AuthGuard],
+              canActivateChild: [AuthGuard],
+            },
+            {
+              path:'login',              
+              component:LoginComponent,
+              canActivate: [AuthGuard],
+              canActivateChild: [AuthGuard],
+             },
+             {
+               path:'register',
+               component:RegisterComponent,
+               canActivate: [AuthGuard],
+               canActivateChild: [AuthGuard],
+             },
+             {
+               path:'cart',
+               component:CartComponent,
+               canActivate: [AuthGuard],
+               canActivateChild: [AuthGuard],
+             },
+             {
+               path:'favorites',
+               component:FavoritesComponent,
+               canActivate: [AuthGuard],
+               canActivateChild: [AuthGuard],
+             },
+          ]
+        }
+      ]
+    }
+
+    ]
+  }
+
+
 ];
 @NgModule({
   declarations: [],

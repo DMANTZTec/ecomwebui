@@ -46,3 +46,27 @@
 ul.navbar-nav.mr-auto {
     list-style-type: none;
 }
+/*All rings section*/
+.row.row-flex{
+	display:flex;
+    flex-wrap:wrap;
+}
+.viewrings-section{
+	  display:none;
+   text-transform: uppercase;
+	}
+.viewrings-section .design-head{
+	font-size:20px;
+}
+p.design-head {
+    border-bottom: 1px solid #f1f1f1;
+    padding:20px 0;
+}
+.filter-head{
+    margin: 15px 0 20px;
+}
+.img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    max-width: 100%;
+    height: 130px;
+}

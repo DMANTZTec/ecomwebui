@@ -34,7 +34,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto" >
                        
-                        <li *ngFor="let dropdowns of NavigationList" class="dropdown" [attr.id]="'dropdowns'+dropdowns.catalogId" [attr.value]="'catlogId'+dropdowns.catalogId">
+                        <li *ngFor="let dropdowns of NavigationList" class="dropdown" [attr.id]="'dropdowns'+dropdowns.catalogId" [attr.value]="'catlogId'+dropdowns.catalogId"  >
                             <a class="dropdown-toggle" href="#" id="NavBar_{{dropdowns.catalogId }}"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{dropdowns.catalogName}}</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li *ngFor="let childitems of dropdowns.childCatalog" class="dropdown">
@@ -56,7 +56,6 @@
         </div>
     </div>
 </div>
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 

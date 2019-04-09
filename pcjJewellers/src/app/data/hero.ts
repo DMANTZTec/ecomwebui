@@ -75,6 +75,25 @@ export class Hero {
 	  }
 
 	  export class Product {
-		id: number;
-		name: string;
+		productId:number;
+		productManufacturerName:string;
+		brandName:string;
+		productSkus:Skus;
+
 	  }
+	  export class Skus{
+		  sku:number;
+		  options:Options;
+		  productSkus:Options;
+		  image:string;
+		  price:number;
+		  productSkuCode:string;
+	  }
+	  export class Options{
+		  optionName:string;
+		  optionValue:string;
+		  options:any[];
+	  }
+    export class FilterCriteria{
+		filterEnabled:string;
+	}

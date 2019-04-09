@@ -1,9 +1,101 @@
-<h1>Products List</h1>
 
+<!--<div class="row row-flex">
+    <div class="col-lg-4 col-sm-6 col-md-4 col-xs-12">
+    <ul>
+        
+         <li *ngFor="let product of Product.products" class="product" [attr.id]="'product'+product.productId" [attr.value]="'productId'+product.productId">
+             <a class="product-toggle" href="#" id="NavBar_{{product.productId }}"  role="button" data-toggle="product" aria-haspopup="true" aria-expanded="false">{{product.productName}}</a>
+             <ul class="product-menu" aria-labelledby="navbarProduct">
+             <li *ngFor="let childitems of product.skus" class="product">
+                 <a class="product-toggle" href="#" id=NavBar_{{childitems.sku}} role="button" data-toggle="product" aria-haspopup="true" aria-expanded="false">{{childitems.sku}}</a>
+                 <ul  class="product-menu" aria-labelledby="navbarProduct">
+               
+                <li *ngFor="let subitems of childitems.skus" >
+                     <a  href="#" id=NavBar_{{subitems.sku}} role="button" >{{subitems.sku}}</a>
+                   
+                 </li>
+                 </ul>
+             </li>
+             </ul>
+         </li>
+         
+     </ul>
+     </div>
+    
+     
+</div>
+    
+
+
+
+<h3>
+  ProductList
+</h3>
+<table border="1">
+  
+    <tr>productId</tr>
+    <tr>productName</tr>
+
+  
+  <tr *ngFor="let product of Product.products" [attr.id]="'product'+product.productId" [attr.value]="'productId'+product.productId" >
+    <td>{{product.productId}}</td>
+    
+      
+        <td>
+        <!--  <a [routerLink] = "['/products',{productId:product.productId}]">buy now</a>
+
+        </td>
+
+  </tr>
+</table>
 <ul>
-	<li *ngFor="let product of products">
-		<a [routerLink]="['/product/', product.id]">{{product.name}}</a>
-	</li>
-</ul>
+  <li *ngFor="let product of Product.products" [attr.id]="'product'+product.productId" [attr.value]="'productId'+product.productId">{{product.productId}}  {{product.productName}}</li>
+</ul>-->
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>jewellery</title>
+    <!-- Bootstrap Css -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    </head>
+    <body id="content" onload="loadDoc();">
+      <div class="container">
+          <br>
+        <div class="row row-flex">
+                <ng-container *ngFor="let product of Product.products">                       
+            <div *ngFor="let childitems of product.productSkus" class="col-lg-4 col-sm-6 col-md-4 col-xs-12">
+                <a href="#"><img src="{{childitems.image}}" class="img-responsive" alt="Cinque Terre">
+                    <div [attr.id]="'childitems'+childitems.price">Rs.{{childitems.price}}</div>
+                </a>
+                <div [attr.id]="'product'+product.productId" [attr.value]="'productId'+product.productId">  {{product.productName}}</div>
+                </div>
+                
+                <!--<div [attr.id]="'product'+product.productId" [attr.value]="'productId'+product.productId">{{product.productId}}  {{product.productName}}</div>
+                -->
+                </ng-container>
+                </div>
+</div>
+         
+         <!-- <ul>
+                    <ng-container *ngFor="let product of Product.products">
+                    <li [attr.id]="'product'+product.productId" [attr.value]="'productId'+product.productId">{{product.productId}}  {{product.productName}}</li>
+                  <div *ngFor="let childitems of product.productSkus" class="col-lg-4 col-sm-6 col-md-4 col-xs-12">
+                      <li class="productSkus" [attr.id]="'childitems'+childitems.image"><img src="{{childitems.image}}"></li>                    
+                  </div>
+                </ng-container>
+                </ul>                
+                    </div>
+            </div>-->
+          
+    
+    </body>
+    </html>
 
-<a routerLink="/">Go To Home</a>
+
+
+
+  
