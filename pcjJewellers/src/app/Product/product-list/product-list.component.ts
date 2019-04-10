@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FilterCriteria, Product, Skus } from 'src/app/data/hero';
 import { error } from '@angular/compiler/src/util';
 import { ProductListService } from 'src/app/Product/product-list/productListService';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { DropdownNotifyService } from 'src/app/sharedServices/dropdown-notify.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,11 +11,14 @@ import { ProductListService } from 'src/app/Product/product-list/productListServ
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  categoryidselected: any;
+  
+  _subscription: Subscription;
  private productListService;
  private filterEnabled="sajana";
  Product:Product[]=[];
 
-  constructor(private _productListService:ProductListService) { }
+  constructor(private _productListService:ProductListService,private _dropdownNotifyService:DropdownNotifyService) { }
 
   ngOnInit() {
     const inputParam=new FilterCriteria();
@@ -26,6 +31,16 @@ export class ProductListComponent implements OnInit {
       },
       error=>console.log(error)
     );
+
+    this._subscription = this._dropdownNotifyService.notifyObservable.subscribe(
+      data => {
+        console.log(data);
+       // this.loadcontent = false;
+        if (this.categoryidselected !== data) {
+          this.categoryidselected = data;
+          console.log(this.categoryidselected);
+        }
+      });
   }
   
 }

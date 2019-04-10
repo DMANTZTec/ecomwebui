@@ -35,14 +35,14 @@
                     <ul class="navbar-nav mr-auto" >
                        
                         <li *ngFor="let dropdowns of NavigationList" class="dropdown" [attr.id]="'dropdowns'+dropdowns.catalogId" [attr.value]="'catlogId'+dropdowns.catalogId"  >
-                            <a class="dropdown-toggle" href="#" id="NavBar_{{dropdowns.catalogId }}"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{dropdowns.catalogName}}</a>
+                            <a class="dropdown-toggle"  id="NavBar_{{dropdowns.catalogId }}"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="catalogNameSelected(dropdowns.catalogId)">{{dropdowns.catalogName}}</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li *ngFor="let childitems of dropdowns.childCatalog" class="dropdown">
-                                <a class="dropdown-toggle" href="#" id=NavBar_{{childitems.catalogId}} role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{childitems.catalogName}}</a>
+                                <a class="dropdown-toggle" id=NavBar_{{childitems.catalogId}} role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="childCatalogNmSelected(childitems.catalogId)">{{childitems.catalogName}}</a>
                                 <ul  class="dropdown-menu" aria-labelledby="navbarDropdown">
                               
                                <li *ngFor="let subitems of childitems.childCatalog" >
-                                    <a  href="#" id=NavBar_{{subitems.catalogId}} role="button" >{{subitems.catalogName}}</a>
+                                    <a id=NavBar_{{subitems.catalogId}} role="button" (click)="subChildCatalogNmSelected(subitems.catalogId)" >{{subitems.catalogName}}</a>
                                   
                                 </li>
                                 </ul>
