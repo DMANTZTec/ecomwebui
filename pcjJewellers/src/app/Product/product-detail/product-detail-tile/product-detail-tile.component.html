@@ -1,0 +1,47 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>jewellery</title>
+
+  <link href="assets/css/style.css" rel="stylesheet">
+  </head>
+  <body id="content">
+    <div class="container">
+      <div class="row">
+      <div class="col-sm-6 col-lg-6">
+       </div>
+      <div class="col-sm-6 col-lg-6">
+      <div class="right-side-ring-details">
+      <h2>The Avalee Gold Ring</h2>
+      <p>By <b>Pc Jeweller</b> |</p>
+      <ng-container *ngFor="let product of currentTileProductDetail.products">
+      <div *ngFor="let childitems of product.productSkus">
+          <a>
+              <img src="{{childitems.image}}" class="img-responsive" alt="Cinque Terre" >
+              <div [attr.id]="'childitems'+childitems.price">Rs.{{childitems.price}}</div>
+          </a>
+          <div [attr.id]="'product'+product.productId" [attr.value]="'productId'+product.productId"> {{product.productName}}</div>
+        
+      </div>
+    </ng-container>
+     <!-- <ul class="heroes">
+        <li *ngFor="let product of ProductList"
+          [class.selected]="currentTileProductDetail === ProductList">
+          <span class="badge">{{product.productId}}</span> {{product.productName}}
+        </li>
+      </ul>-->
+      </div>
+      </div>
+  
+      
+      </div>
+  
+    </div>
+    
+  
+  </body>
+  </html>

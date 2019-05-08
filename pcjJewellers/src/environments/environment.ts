@@ -11,7 +11,9 @@ export const environment = {
   gold_url:"./assets/data/gold.json",
  navigation_url:"./assets/data/newfile.json",
  //navigation_url:'http://localhost:8080/catalog_dir'
- ProductListUrl:"./assets/data/productOutputCatalog.json"
+ ProductListUrl:"./assets/data/productOutputCatalog.json",
+ productDetailListUrl:"./assets/data/productDetail.json",
+ createOrderUrl:"./assets/data/createOrder.json"
 };
 
 /*

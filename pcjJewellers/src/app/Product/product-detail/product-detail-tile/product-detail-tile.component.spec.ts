@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SilverComponent } from './silver.component';
+import { ProductDetailTileComponent } from './product-detail-tile.component';
 
-describe('SilverComponent', () => {
-  let component: SilverComponent;
-  let fixture: ComponentFixture<SilverComponent>;
+describe('ProductDetailTileComponent', () => {
+  let component: ProductDetailTileComponent;
+  let fixture: ComponentFixture<ProductDetailTileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SilverComponent ]
+      declarations: [ ProductDetailTileComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SilverComponent);
+    fixture = TestBed.createComponent(ProductDetailTileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

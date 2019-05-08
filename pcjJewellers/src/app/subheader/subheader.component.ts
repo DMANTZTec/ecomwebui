@@ -19,9 +19,10 @@ getLoginLinks(){
       { label: 'login', link: 'login' },
       { label: 'register', link: 'register' },
       { label: 'favorites', link: 'favorites'},
-      { label: 'cart', link: 'cart'},
+     // { label: 'cart', link: 'cart'},
        ];
   }
   
 }
+
 }

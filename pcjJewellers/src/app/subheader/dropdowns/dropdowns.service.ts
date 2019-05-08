@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Hero, Gold,Child,NavigationList, DropdownSvcParams } from 'src/app/data/hero';
+import { Child,NavigationList, DropdownSvcParams } from 'src/app/data/hero';
 @Injectable({
   providedIn: 'root'
 })

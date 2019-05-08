@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DropdownsService } from './dropdowns.service';
-import { Hero, EarRings, NewArrivals, Gold, Child, NavigationList, DropdownSvcParams } from '../../data/hero';
+import { Child, NavigationList, DropdownSvcParams } from '../../data/hero';
 import { DropdownNotifyService } from 'src/app/sharedServices/dropdown-notify.service';
 import { Subscription } from 'rxjs/internal/Subscription';
 

@@ -23,10 +23,7 @@ import { StorelocatorComponent } from './header/storelocator/storelocator.compon
 import { CorporateComponent } from './header/corporate/corporate.component';
 import { InvestorsComponent } from './header/investors/investors.component';
 import { EventsComponent } from './events/events.component';
-import { GoldComponent } from './subheader/dropdowns/gold/gold.component';
-import { SilverComponent } from './subheader/dropdowns/silver/silver.component';
-import { DiamondsComponent } from './subheader/dropdowns/diamonds/diamonds.component';
-import { DropdownitemsComponent } from './subheader/dropdowns/dropdownitems/dropdownitems.component';
+
 import { AlertService } from 'src/app/sharedServices/alert.service';
 import { AuthenticationService } from 'src/app/sharedServices/authentication.service';
 import { UserService } from 'src/app/sharedServices/user.service';
@@ -34,6 +31,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProductListComponent } from 'src/app/Product/product-list/product-list.component';
 import { ProductTileComponent } from 'src/app/Product/product-list/product-tile/product-tile.component';
 import { ProductListService } from 'src/app/Product/product-list/productListService';
+import { AlertComponent } from './alert/alert.component';
+import { ProductDetailComponent } from './Product/product-detail/product-detail.component';
+import { ProductDetailTileComponent } from './Product/product-detail/product-detail-tile/product-detail-tile.component';
+import { OrderService } from 'src/app/sharedServices/order.service';
+import { ProductDetailService } from 'src/app/sharedServices/product-detail.service';
 
 @NgModule({
   declarations: [
@@ -57,10 +59,10 @@ import { ProductListService } from 'src/app/Product/product-list/productListServ
     ProductListComponent,
     ProductTileComponent,
     EventsComponent,
-    GoldComponent,
-    SilverComponent,
-    DiamondsComponent,
-    DropdownitemsComponent
+   
+    AlertComponent,
+    ProductDetailComponent,
+    ProductDetailTileComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +77,9 @@ import { ProductListService } from 'src/app/Product/product-list/productListServ
     AlertService,
     ProductListService,
     AuthenticationService,
-    UserService],
+    UserService,
+    OrderService,
+  ProductDetailService],
     bootstrap: [AppComponent]
   })
 export class AppModule { }

@@ -46,25 +46,25 @@ console.log(this.registerForm.value);
         .subscribe(
             data => {
                 this.UserVariable=<any>data
-              
-               console.log("data is",this.UserVariable);
-               if(this.UserVariable.status=='registration Sucessful'){ 
-              console.log("the response data is",this.UserVariable);
-                this.router.navigate(['/login']);
+                console.log("data is",this.UserVariable);
+                if(this.UserVariable.status=='registration Sucessful'){ 
+                console.log("the response data is",this.UserVariable);
+                console.log("above the login navigation");
+                this.router.navigate(['/main/header/subheader/login']);
                 }
                 else
                 {
-                    this.router.navigate(['/register']);  
+                    this.router.navigate(['/main/header/subheader/register']);  
                 }
-              // if(data==this.registerForm.value)
-               // this.router.navigate(['/login']);
+              
             },
             error => {
                // this.alertService.error(error);
                console.log(error);
               //this.router.navigate(['/login']);
-            });
-}
+            }
+        );
+    }
 }
 
 

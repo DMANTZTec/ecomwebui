@@ -3,23 +3,22 @@ import { Injectable } from '@angular/core';
 import { shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Hero, Gold,Child,NavigationList, DropdownSvcParams, FilterCriteria, Product } from 'src/app/data/hero';
+import { Child,NavigationList, DropdownSvcParams, FilterCriteria, Product,FilterCriteriaObj } from 'src/app/data/hero';
+import { MessagesService } from 'src/app/sharedServices/messages.service';
+import { stringify } from '@angular/core/src/util';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductListService {
-  private _filterCriteriaParam: FilterCriteria;
-  
-  constructor(private _http: HttpClient) { }
+  private _filterCriteriaParam: FilterCriteriaObj;
+  navbarCartCount = 0;
+	navbarFavProdCount = 0;
+  constructor(private _http: HttpClient,private messageService:MessagesService) { }
  
 
-  getProductList(inputParam:FilterCriteria) {
+  getProductList(inputParam:FilterCriteriaObj) {
     console.log(inputParam);
     this. _filterCriteriaParam = inputParam;
-    const httpBody = {
-      'filterEnabled':this._filterCriteriaParam.filterEnabled
-      };
-      console.log(httpBody);
       
           const httpOptions = {
            
@@ -37,8 +36,31 @@ export class ProductListService {
   // console.log("productlist",this._http.get<Product[]>(environment.ProductListUrl).pipe());
    // return this._http.get<Product[]>(environment.ProductListUrl).pipe();
    console.log("service call");
-   console.log("result of product list is",this._http.post<Product[]>("http://localhost:8089/ec/catalog",httpBody,httpOptions).pipe());
-   return this._http.post<Product[]>("http://localhost:8089/ec/catalog",httpBody,httpOptions).pipe();
+   console.log("result of product list is",this._http.post<Product[]>("http://localhost:8089/ec/catalog",inputParam,httpOptions).pipe());
+   return this._http.post<Product[]>("http://localhost:8089/ec/catalog",inputParam,httpOptions).pipe();
   }
+ /* addToCart(data: Product): void {
+		let a: Product[];
+
+		a = localStorage.getItem('avct_item') || [];
+    console.log(a);
+   // a.push(data);
+    
+		this.messageService.wait('Adding Product to Cart', 'Product Adding to the cart');
+		setTimeout(() => {
+			localStorage.setItem('avct_item', stringify(a));
+			this.calculateLocalCartProdCounts();
+		}, 500);
+	}
+  getLocalCartProducts(): Product[]{
+    const products: Product[] = localStorage.getItem('avct_item') || [];
+    
+        return products;
+    
+  }
+  calculateLocalCartProdCounts() {
+   // this.navbarCartCount = this.getLocalCartProducts().length;
+    console.log(this.navbarCartCount);
+	}*/
 }
 

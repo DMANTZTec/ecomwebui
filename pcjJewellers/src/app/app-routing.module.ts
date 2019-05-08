@@ -19,6 +19,8 @@ import { SubheaderComponent } from 'src/app/subheader/subheader.component';
 import { TabsComponent } from 'src/app/header/tabs/tabs.component';
 import { DropdownsComponent } from 'src/app/subheader/dropdowns/dropdowns.component';
 import { MainbodyComponent } from 'src/app/mainbody/mainbody.component';
+import { ProductDetailComponent } from 'src/app/Product/product-detail/product-detail.component';
+
 const appRoutes:Routes=[
   {
     path: '',
@@ -65,6 +67,14 @@ const appRoutes:Routes=[
               canActivateChild: [AuthGuard],
             },
             {
+              path:'productDetail/:id',
+              component:ProductDetailComponent,
+              canActivate: [AuthGuard],
+              canActivateChild: [AuthGuard],
+
+            },
+            
+           {
               path:'login',              
               component:LoginComponent,
               canActivate: [AuthGuard],
@@ -92,7 +102,7 @@ const appRoutes:Routes=[
         }
       ]
     }
-
+    
     ]
   }
 

@@ -1,36 +1,5 @@
-export class Hero {
-	
-		popularringstypes:any[];
-		bypricerange:any[];
-		bymetalandstones:any[];
-	
-		
-		/*dailywear:string;
-		engagement:string;
-		couplebrands:string;*/      
-		
-		
-	}
-	export class EarRings 
-	{
-		popularearringstypes:any[];
-		bypricerange:any[];
-		bymetalandstones:any[];
-	}
-	
-	export class NewArrivals
-	{
-		popularpendentstypes:any[];
-		bypricerange:any[];
-		bymetalandstones:any[];
-	
-	}
-	
-	export class GoldCoins{
-		byweight:any[];
-		bydesign:any[]
-	
-	}
+
+
 	export class NavigationList{
 		catalogName: string;
 		catalogId: number;
@@ -41,15 +10,7 @@ export class Hero {
 		storeId:number;
 	}
 	
-	export class Gold{
-		catalogName: string;
-		catalogId: number;
-		catalogDesc: string;
-		catalogLevel: number;
-		parentCatalogId: number;
-		childCatalog:Child;
 	
-	}
 	export class Child{
 		catalogName: string;
 		catalogId: number;
@@ -81,6 +42,7 @@ export class Hero {
 		productSkus:Skus;
 
 	  }
+	  
 	  export class Skus{
 		  sku:number;
 		  options:Options;
@@ -92,8 +54,35 @@ export class Hero {
 	  export class Options{
 		  optionName:string;
 		  optionValue:string;
-		  options:any[];
+		  //options:any[];
 	  }
     export class FilterCriteria{
 		filterEnabled:string;
+	}
+	export class FilterCriteriaObj{
+		filterCriteria:FilterCriteria;
+	} 
+	export class Order{
+		customerId:string; 
+		orderItemObj:any[];
+	}
+	export class OrderItem{
+		order_id:number;
+		productSku:string;
+		mrpPrice:string;
+		price:number;
+		discountApplied:string;
+		quantity:string;
+		giftWrapped:string;
+		productId:number;
+		productName:string;
+	   // orderItemObj:any[];
+	}
+	export class CreateOrderResponse{
+		status:string;
+		orderId:number;
+	}
+	export class UpdateOrderResponse{
+		totalQuantity:number ;
+		status:string ;
 	}
