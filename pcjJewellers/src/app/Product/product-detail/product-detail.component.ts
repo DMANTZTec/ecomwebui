@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductDetailService } from 'src/app/sharedServices/product-detail.service';
 import { Input } from '@angular/core';
-import { Product, Skus, FilterCriteria } from 'src/app/data/hero';
+import { Product, Skus, FilterCriteria, FilterCriteriaObj } from 'src/app/data/hero';
 import { Router ,NavigationExtras} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { ProductListService } from 'src/app/Product/product-list/productListService';
@@ -19,6 +19,7 @@ export class ProductDetailComponent implements OnInit {
   Skus:Skus[]=[];
   private sku=2;
   private productListService;
+  private catalog_id=0;
   private filterEnabled="sajana";
   private ProductsList:Product[];
   public currentproductdetails:Product[]=[];
@@ -27,8 +28,11 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params=>{
     this.id=+params['id'];
-    const inputParam=new FilterCriteria();
-    inputParam.filterEnabled=this.filterEnabled;
+    const inputParam1=new FilterCriteria();
+    inputParam1.catalog_id=this.catalog_id;
+    inputParam1.filterEnabled=this.filterEnabled;
+    const inputParam=new FilterCriteriaObj();
+    inputParam.filterCriteria=inputParam1;
     console.log(inputParam);
     this._productListService.getProductList(inputParam).subscribe(
       (products: any)=>{

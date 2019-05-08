@@ -64,7 +64,7 @@ export class CartComponent implements OnInit {
      // console.log("the response data is",this.UserVariable);
       console.log("item is added to the cart");
       this.router.navigate(['/main/header/subheader/products']);
-    }else{xc
+    }else{
       error=>console.log(error);
     }
 		console.log("abcd");

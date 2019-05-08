@@ -57,6 +57,7 @@
 		  //options:any[];
 	  }
     export class FilterCriteria{
+		catalog_id:number;
 		filterEnabled:string;
 	}
 	export class FilterCriteriaObj{
