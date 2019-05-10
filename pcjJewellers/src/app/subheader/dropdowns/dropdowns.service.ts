@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-//import { Observable } from 'rxjs/rx';
+
 import { shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Child,NavigationList, DropdownSvcParams } from 'src/app/data/hero';
+import { Child,NavigationList, DropdownSvcParams } from '../../data/hero';
 @Injectable({
   providedIn: 'root'
 })
@@ -39,8 +39,8 @@ export class DropdownsService {
       })
     };
     console.log("service call");
-    console.log("result is",this._http.post<any>("http://localhost:8089/catalog_dir",httpBody,httpOptions).pipe());
-    return this._http.post<NavigationList[]>("http://localhost:8089/catalog_dir",httpBody,httpOptions).pipe();
+    console.log("result is",this._http.post<any>(environment.navigation_url,httpBody,httpOptions).pipe());
+    return this._http.post<NavigationList[]>(environment.navigation_url,httpBody,httpOptions).pipe();
           
   }
 

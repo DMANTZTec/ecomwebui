@@ -21,14 +21,7 @@
          
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right" role="tablist">
-           <!--<li class="active"><a href="#">Corporate Gifting</a></li>
-            <li class="active"><a href="#">Gift-cards</a></li>
-            <li class="active"><a href="#">JflPayments</a></li>
-            <li class="active"><a href="#">Strore Locator</a></li>
-            <li class="active"><a href="#">Corporate Gifting</a></li>
-            <li class="active"><a href="#">Corporate</a></li>
-            <li class="active"><a href="#">Investors</a></li>
-           -->
+          
            <li *ngFor="let headerLink of headerLinks"><a [routerLink]="headerLink.link"   routerLinkActive="active">{{headerLink.label}}</a></li>
 
           </ul>

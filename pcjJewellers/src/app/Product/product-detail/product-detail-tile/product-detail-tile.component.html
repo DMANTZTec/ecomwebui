@@ -7,41 +7,108 @@
   <meta name="author" content="">
   <title>jewellery</title>
 
-  <link href="assets/css/style.css" rel="stylesheet">
+  
   </head>
   <body id="content">
-    <div class="container">
-      <div class="row">
-      <div class="col-sm-6 col-lg-6">
-       </div>
-      <div class="col-sm-6 col-lg-6">
-      <div class="right-side-ring-details">
-      <h2>The Avalee Gold Ring</h2>
-      <p>By <b>Pc Jeweller</b> |</p>
-      <ng-container *ngFor="let product of currentTileProductDetail.products">
-      <div *ngFor="let childitems of product.productSkus">
-          <a>
-              <img src="{{childitems.image}}" class="img-responsive" alt="Cinque Terre" >
-              <div [attr.id]="'childitems'+childitems.price">Rs.{{childitems.price}}</div>
-          </a>
-          <div [attr.id]="'product'+product.productId" [attr.value]="'productId'+product.productId"> {{product.productName}}</div>
-        
-      </div>
-    </ng-container>
-     <!-- <ul class="heroes">
-        <li *ngFor="let product of ProductList"
-          [class.selected]="currentTileProductDetail === ProductList">
-          <span class="badge">{{product.productId}}</span> {{product.productName}}
-        </li>
-      </ul>-->
-      </div>
-      </div>
-  
+      <a href="#" class="jumpup" id="back-to-top" title="Back to top"><i
+        class="fa fa-angle-up arrow-up" aria-hidden="true"></i></a>
+      <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-lg-6 product-detail">
+            <img src="{{currentTileProductDetail[0].productSkus[0].image}}" class="img-responsive product-image">
+            
+            </div>
+            <div class="col-sm-6 col-lg-6">
+              <div class="right-side-ring-details">
+                <h2>The Avalee Gold Ring</h2>
+                <span>By <b>Pc Jeweller</b> |
+                </span> <span>Product Code</span> <span>{{currentTileProductDetail[0].productId}}</span>
+                <p>{{currentTileProductDetail[0].productName}}</p>
+                <span>M.R.P:</span> <span>{{currentTileProductDetail[0].productSkus[0].price}}</span> <span>(Inclusive of
+                  all taxes)</span>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="Size">Size :</label> <select class="form-control"
+                      id="sel1">
+                      <option>Select Size</option>
+                      <option>small</option>
+                      <option>medium</option>
+                      <option>large</option>
+                      <option>xxl</option>
+                    </select>
       
-      </div>
-  
-    </div>
-    
+                  </div>
+                </form>
+                <div class="accordion" id="accordionExample">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <div class="price-breakup">
+                        <h5 class="mb-0">
+                          <a href="#" data-toggle="collapse" data-target="#collapseOne"
+                            class="collapsed" aria-expanded="true"
+                            aria-controls="collapseOne"> <span class="viewtext">View</span>
+                            <span class="hidetext">Hide</span> price-breakup <i
+                            class="fa fa-arrow-down" aria-hidden="true"></i>
+                          </a>
+                        </h5>
+                      </div>
+                    </div>
+      
+                    <div id="collapseOne" class="collapse"
+                      aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body">
+      
+                        <div class="gold each-charge text-centeer">
+                          Gold
+                          <div class="each-charge-val">
+                            <i class="fa fa-inr" aria-hidden="true"></i> 4,043
+                          </div>
+                        </div>
+                        <span class="divider"><i class="fa fa-plus seperator"
+                          aria-hidden="true"></i></span>
+                        <div class="making each-charge text-centeer">
+                          Making-Charges
+                          <div class="each-charge-val">
+                            <i class="fa fa-inr" aria-hidden="true"></i> 1,850
+                          </div>
+                        </div>
+                        <span class="divider"><i class="fa fa-plus seperator"
+                          aria-hidden="true"></i> </span>
+                        <div class="making each-charge text-centeer">
+                          GST (3%)
+                          <div class="each-charge-val">
+                            <i class="fa fa-inr" aria-hidden="true"></i> 177
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      
+      
+                </div>
+              </div>
+              <div class="buy-now-section">
+                <div class="btn-list row">
+                  <div class="col-xs-6">
+            
+                      
+                      <button (click)="createOrder(product)"  class="btn btn-primary btn-lg" type=”button”>addToCart</button>
+                  </div>
+                  <div class="col-xs-6">
+                     <button type="
+                      button" class="btn btn-primary btn-lg">BUY NOW
+                      </button>
+                    
+                  </div>
+                </div>
+      
+              </div>
+      
+            </div>
+      
+          </div>
+      
+        </div>
   
   </body>
   </html>

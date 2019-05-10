@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { LoginService } from 'src/app/sharedServices/login.service';
+import { LoginService } from '../../sharedServices/login.service';
 import { error } from '@angular/compiler/src/util';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { AuthenticationService } from 'src/app/sharedServices/authentication.service';
+import { AuthenticationService } from '../../sharedServices/authentication.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { AlertService } from 'src/app/sharedServices/alert.service';
+import { AlertService } from '../../sharedServices/alert.service';
 import { first } from 'rxjs/internal/operators/first';
 
 @Component({

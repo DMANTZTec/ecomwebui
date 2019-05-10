@@ -91,6 +91,7 @@ const appRoutes:Routes=[
                component:CartComponent,
                canActivate: [AuthGuard],
                canActivateChild: [AuthGuard],
+               
              },
              {
                path:'favorites',

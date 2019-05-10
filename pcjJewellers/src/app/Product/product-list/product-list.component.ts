@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterCriteria, Product, Skus, FilterCriteriaObj } from 'src/app/data/hero';
+import { FilterCriteria, Product, Skus, FilterCriteriaObj } from '../../data/hero';
 import { error } from '@angular/compiler/src/util';
-import { ProductListService } from 'src/app/Product/product-list/productListService';
+import { ProductListService } from '../../Product/product-list/productListService';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { DropdownNotifyService } from 'src/app/sharedServices/dropdown-notify.service';
+import { DropdownNotifyService } from '../../sharedServices/dropdown-notify.service';
 
 @Component({
   selector: 'app-product-list',

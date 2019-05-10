@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatMenuModule} from '@angular/material/menu';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -71,6 +72,7 @@ import { ProductDetailService } from 'src/app/sharedServices/product-detail.serv
     RouterModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
     MatMenuModule
   ],
   providers: [

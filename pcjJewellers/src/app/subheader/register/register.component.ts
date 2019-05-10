@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { UserService } from 'src/app/sharedServices/user.service';
-import { AlertService } from 'src/app/sharedServices/alert.service';
-import { User } from 'src/app/data/hero';
+import { UserService } from '../../sharedServices/user.service';
+import { AlertService } from '../../sharedServices/alert.service';
+import { User } from '../../data/hero';
 
 @Component({
   selector: 'app-register',

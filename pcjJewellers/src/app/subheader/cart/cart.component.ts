@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Product, Order, OrderItem, CreateOrderResponse } from 'src/app/data/hero';
-import { ProductListService } from 'src/app/Product/product-list/productListService';
-import { OrderService } from 'src/app/sharedServices/order.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { Product, Order, OrderItem, CreateOrderResponse } from '../../data/hero';
+import { ProductListService } from '../../Product/product-list/productListService';
+import { OrderService } from '../../sharedServices/order.service';
 import { Router } from '@angular/router';
 import { error } from 'selenium-webdriver';
+import { ProductDetailComponent } from '../../Product/product-detail/product-detail.component';
 
 @Component({
   selector: 'app-cart',
@@ -11,9 +12,11 @@ import { error } from 'selenium-webdriver';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+//	@Input() currentTileProductDetail:Product[];
+	@Input() savecurrentTileProduct:Product;
   UserVariable:CreateOrderResponse;
-
-  cartProducts: Product[];
+  private Id;
+  //cartProducts: Product[];
 	showDataNotFound = true;
    // private orderitem:OrderItem;
 	// Not Found Message
@@ -30,11 +33,33 @@ export class CartComponent implements OnInit {
    public orderitems=[];
 	 private currentOrder:Order;
 	 private existItem:OrderItem;
+	 private currentchildDetail:any;
 	constructor(private productListService:ProductListService,private orderservice:OrderService,private router: Router,) {}
 
 	ngOnInit() {
+       // this.productListService.$productDetails.subscribe((data)=>{
+		//	console.log("productDetailData is",data);
+		//})
+
+
+		//console.log(this.currentTileProductDetail);
+		//this.Id=this.currentTileProductDetail;
+		console.log(this.savecurrentTileProduct);
+	
+    //console.log(this.Id);
     this.createOrder("102",this.orderItem);
-  }
+	}
+	viewCart(productDetails:Product){
+		console.log(productDetails);
+   if(productDetails){
+		 this.currentchildDetail="values recieved from child"+productDetails;
+		 console.log(this.currentchildDetail);
+	 }
+	}
+
+
+
+
   createOrder(customerId:string,orderItem:OrderItem){
 	//	this.getCartProduct();
 	var inputParam=new Order();
@@ -62,8 +87,9 @@ export class CartComponent implements OnInit {
         console.log(this.UserVariable.status);
     if(this.UserVariable.status="item added"){ 
      // console.log("the response data is",this.UserVariable);
-      console.log("item is added to the cart");
-      this.router.navigate(['/main/header/subheader/products']);
+	  console.log("item is added to the cart");
+	  
+     // this.router.navigate(['/main/header/subheader/products']);
     }else{
       error=>console.log(error);
     }
@@ -108,46 +134,6 @@ export class CartComponent implements OnInit {
 		);
 	}
 }
-/*	addItem(orderitem){
-	this.orderItemList	
-//	if (orderItemList.) {
-	//	this.orderItemList.add(orderitem);
-	   console.log(this.orderItemList);
-		this.calculateTotals();
-	   this.totalQuantity();
-	   this.cartTotal();
-//	}	
-	//else{
-       console.log(this.orderItemList);
-	   this.calculateTotals();
-	   this.totalQuantity();
-	   this.cartTotal();
-	//}
-	}
-	calculateTotals(){
-		
-	}
-	totalQuantity(){
-		
-		console.log(this.totalQuantity);
-		
-
-	}
-	cartTotal(){
-
-	}
-	}
-
-/*	removeCartProduct(product: Product) {
-		this.productService.removeLocalCartProduct(product);
-
-		// Recalling
-		this.getCartProduct();
-	}
-
-	getCartProduct() {
-		this.cartProducts = this.productListService.getLocalCartProducts();
-	}*/
 
 
 

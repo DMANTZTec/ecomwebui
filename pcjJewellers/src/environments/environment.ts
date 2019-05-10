@@ -4,16 +4,19 @@
 
 export const environment = {
   production: false,
+  Registration_Url:'http://192.168.100.27:8080/register',
+  getUserUrl:'http://192.168.100.27:8080/getUser/emailId',
   Rings_URL: './assets/data/Rings.json',
   Earrings_url:'./assets/data/earrings.json',
   NewArrivals_url:"./assets/data/newarrivals.json",
   goldcoins_url:"./assets/data/goldcoins.json",
   gold_url:"./assets/data/gold.json",
- navigation_url:"./assets/data/newfile.json",
- //navigation_url:'http://localhost:8080/catalog_dir'
- ProductListUrl:"./assets/data/productOutputCatalog.json",
+// navigation_url:"./assets/data/newfile.json",
+ navigation_url:'http://192.168.100.27:8080/catalog_dir',
+ ProductListUrl:'http://192.168.100.27:8080/ec/catalog',
  productDetailListUrl:"./assets/data/productDetail.json",
- createOrderUrl:"./assets/data/createOrder.json"
+ createOrderUrl:'http://192.168.100.27:8080/EcommerceApp/createOrder2',
+ updateOrderUrl:'http://192.168.100.27:8080/EcommerceApp/updateOrder'
 };
 
 /*

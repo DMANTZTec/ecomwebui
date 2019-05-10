@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
-//import { Observable } from 'rxjs/rx';
 import { shareReplay } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Child,NavigationList, DropdownSvcParams, FilterCriteria, Product,FilterCriteriaObj } from 'src/app/data/hero';
-import { MessagesService } from 'src/app/sharedServices/messages.service';
+import { Child,NavigationList, DropdownSvcParams, FilterCriteria, Product,FilterCriteriaObj } from '../../data/hero';
+import { MessagesService } from '../../sharedServices/messages.service';
 import { stringify } from '@angular/core/src/util';
+import { EventEmitter } from 'events';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductListService {
   private _filterCriteriaParam: FilterCriteriaObj;
-  navbarCartCount = 0;
-	navbarFavProdCount = 0;
+ 
+  $productDetails=new EventEmitter();
+  products:Product[];
   constructor(private _http: HttpClient,private messageService:MessagesService) { }
  
 
@@ -33,34 +34,15 @@ export class ProductListService {
             
             })
           };
-  // console.log("productlist",this._http.get<Product[]>(environment.ProductListUrl).pipe());
-   // return this._http.get<Product[]>(environment.ProductListUrl).pipe();
    console.log("service call");
-   console.log("result of product list is",this._http.post<Product[]>("http://localhost:8089/ec/catalog",inputParam,httpOptions).pipe());
-   return this._http.post<Product[]>("http://localhost:8089/ec/catalog",inputParam,httpOptions).pipe();
+   console.log("result of product list is",this._http.post<Product[]>(environment.ProductListUrl,inputParam,httpOptions).pipe());
+   return this._http.post<Product[]>(environment.ProductListUrl,inputParam,httpOptions).pipe();
   }
- /* addToCart(data: Product): void {
-		let a: Product[];
-
-		a = localStorage.getItem('avct_item') || [];
-    console.log(a);
-   // a.push(data);
+  productDetail(){
+    console.log();
     
-		this.messageService.wait('Adding Product to Cart', 'Product Adding to the cart');
-		setTimeout(() => {
-			localStorage.setItem('avct_item', stringify(a));
-			this.calculateLocalCartProdCounts();
-		}, 500);
-	}
-  getLocalCartProducts(): Product[]{
-    const products: Product[] = localStorage.getItem('avct_item') || [];
-    
-        return products;
-    
+   // this.$productDetails.emit(this.products);
   }
-  calculateLocalCartProdCounts() {
-   // this.navbarCartCount = this.getLocalCartProducts().length;
-    console.log(this.navbarCartCount);
-	}*/
+ 
 }
 

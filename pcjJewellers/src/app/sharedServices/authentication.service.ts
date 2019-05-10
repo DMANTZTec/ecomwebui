@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { config } from 'rxjs';
-import { User } from 'src/app/data/hero';
+import { User } from '../../app/data/hero';
 import { HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthenticationService {
@@ -15,7 +16,7 @@ export class AuthenticationService {
               'Content-Type':'application/json',
               'Accept':'application/json',
               'responseType':'text',              
-              'Access-Control-Allow-Origin':'http://localhost:8089',
+              'Access-Control-Allow-Origin':'http://localhost:8080',
               'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
               'Access-Control-Allow-Headers':'Content-Type,application/json',
               'Authorization':'my-auth-token'
@@ -24,7 +25,7 @@ export class AuthenticationService {
             })
           };
           const headers=new HttpHeaders().set('Content-Type','application/x-www-formurlencoded');
-        return this.http.post<User>("http://localhost:8089/getUser/emailId", { email_id:email_id, password: password },httpOptions)
+        return this.http.post<User>(environment.getUserUrl, { email_id:email_id, password: password },httpOptions)
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
                 if (user && user.email_id) {

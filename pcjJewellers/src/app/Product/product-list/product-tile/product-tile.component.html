@@ -20,9 +20,9 @@
                 <div *ngFor="let childitems of product.productSkus" class="col-lg-4 col-sm-6 col-md-4 col-xs-12">
                         <div class="bx-content">
                                 <div class="image-box">
-                                    <div id="addtocart">
-                                        <button (click)="createOrder()" type=”button”>addToCart</button>
-                                    </div>
+                                     <div id="addtocart">
+                                        <button (click)="createOrder(product)" type=”button”>addToCart</button>
+                                    </div> 
                     <a>
                         <img src="{{childitems.image}}" class="img-responsive" alt="Cinque Terre" (click)="getDetails(childitems.sku)">
                         <div [attr.id]="'childitems'+childitems.price">Rs.{{childitems.price}}</div>
@@ -42,7 +42,7 @@
 
 </html>
 
-
+<app-cart [savecurrentTileProduct]='saveProductDetails'></app-cart>
 
 
 

@@ -1,0 +1,48 @@
+.price-breakup{
+    border-bottom: 1px solid #efefef;
+    border-top: 1px solid #efefef;
+}
+.price-breakup h5 a{
+    color: #757575;
+    display:block
+    
+}
+.price-breakup h5 a .viewtext {
+    display: none;
+}
+.price-breakup h5 a.collapsed .viewtext{
+    display: inline;
+}
+.price-breakup h5 a.collapsed .hidetext{
+    display: none;
+}
+.product-detail .img-responsive.product-image{
+    max-width:50% !important;
+}
+
+.card-body {
+    margin-top: 20px;
+    border-bottom: 1px solid #efefef;
+}
+
+.card-body .each-charge{
+    border: 1px solid #d0d0d0;
+    padding: 5px 20px;
+    font-size: 12px;
+    min-width: 85px;
+    margin-bottom: 5%;
+    display: inline-block;
+    color: #878787;
+    vertical-align: top;
+}
+.card-body .each-charge .each-charge-val{
+    color: #222;
+    padding-top: 2px;
+    font-size: 12px;
+}
+.btn-list {
+    max-width: 412px;
+}
+.buy-now-section {
+    margin-top: 20px;
+}

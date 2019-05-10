@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductDetailService } from 'src/app/sharedServices/product-detail.service';
-import { Input } from '@angular/core';
-import { Product, Skus, FilterCriteria, FilterCriteriaObj } from 'src/app/data/hero';
+import { ProductDetailService } from '../../sharedServices/product-detail.service';
+import { Input ,Output} from '@angular/core';
+import { Product, Skus, FilterCriteria, FilterCriteriaObj } from '../../data/hero';
 import { Router ,NavigationExtras} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { ProductListService } from 'src/app/Product/product-list/productListService';
+import { ProductListService } from '../../Product/product-list/productListService';
 import { filter } from 'rxjs/operators';
+import { DropdownNotifyService } from '../../sharedServices/dropdown-notify.service';
+import { EventEmitter } from 'events';
 
 
 @Component({
@@ -14,7 +16,9 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
+  _subscription: any;
   @Input() currentTileProduct:Product;
+ 
   private id;
   Skus:Skus[]=[];
   private sku=2;
@@ -23,7 +27,8 @@ export class ProductDetailComponent implements OnInit {
   private filterEnabled="sajana";
   private ProductsList:Product[];
   public currentproductdetails:Product[]=[];
-  constructor(private _productListService:ProductListService,private route:ActivatedRoute) { }
+ // $productDetails=new EventEmitter();
+  constructor(private _productListService:ProductListService,private route:ActivatedRoute,private _dropdownNotifyService:DropdownNotifyService) { }
   
   ngOnInit() {
     this.route.params.subscribe(params=>{
@@ -44,6 +49,12 @@ export class ProductDetailComponent implements OnInit {
       },
       error=>console.log(error)
     );
+    this._subscription = this._dropdownNotifyService.notifyObservable.subscribe(
+      data => {
+        console.log(data);
+       // this.loadcontent = false;
+        
+      });
     }
     );
   }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { OrderItem, Order } from 'src/app/data/hero';
+import { OrderItem, Order } from '../../app/data/hero';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class OrderService {
         'Content-Type':'application/json',
         'Accept':'application/json',
         'responseType':'text',              
-        'Access-Control-Allow-Origin':'http://localhost:8089',
+        'Access-Control-Allow-Origin':'http://localhost:8080',
         'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
         'Access-Control-Allow-Headers':'Content-Type,application/json',
         'Authorization':'my-auth-token'
@@ -26,7 +26,7 @@ export class OrderService {
         
       })
     };
-     return this._http.post<any>('http://localhost:8089/EcommerceApp/createOrder2',order,httpOptions).pipe();
+     return this._http.post<any>(environment.createOrderUrl,order,httpOptions).pipe();
   
   }
  addItemOrderToBE(updateOrder:Order):Observable<any>{
@@ -36,7 +36,7 @@ export class OrderService {
       'Content-Type':'application/json',
       'Accept':'application/json',
       'responseType':'text',              
-      'Access-Control-Allow-Origin':'http://localhost:8089',
+      'Access-Control-Allow-Origin':'http://localhost:8080',
       'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
       'Access-Control-Allow-Headers':'Content-Type,application/json',
       'Authorization':'my-auth-token'
@@ -44,7 +44,7 @@ export class OrderService {
       
     })
   };
-  return this._http.post<any>('http://localhost:8089/EcommerceApp//updateOrder',updateOrder,httpOptions).pipe();
+  return this._http.post<any>(environment.updateOrderUrl,updateOrder,httpOptions).pipe();
 
  }
 }
