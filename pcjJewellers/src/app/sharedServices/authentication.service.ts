@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
-    login(email_id: string, password: string) {
+    login(email_id: string) {
         const httpOptions = {
             headers :new HttpHeaders({
               'Content-Type':'application/json',
@@ -25,16 +25,10 @@ export class AuthenticationService {
             })
           };
           const headers=new HttpHeaders().set('Content-Type','application/x-www-formurlencoded');
-        return this.http.post<User>(environment.getUserUrl, { email_id:email_id, password: password },httpOptions)
-            .pipe(map(user => {
-                // login successful if there's a jwt token in the response
-                if (user && user.email_id) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser',user.email_id);
-                }
+        return this.http.post<User[]>(environment.getUserUrl, { email_id:email_id },httpOptions).pipe();
+            
 
-                return user;
-            }));
+             
     }
 
     logout() {

@@ -16,12 +16,15 @@
         <div class="row row-flex">
                 
                
+            
             <ng-container *ngFor="let product of currentTileProduct.products">
                 <div *ngFor="let childitems of product.productSkus" class="col-lg-4 col-sm-6 col-md-4 col-xs-12">
                         <div class="bx-content">
                                 <div class="image-box">
                                      <div id="addtocart">
-                                        <button (click)="createOrder(product)" type=”button”>addToCart</button>
+                                        <button (click)="createOrder(product,childitems.sku)" type=”button”>
+                                               <!-- <a [routerLink]="cart">-->
+                                            addToCart</button>
                                     </div> 
                     <a>
                         <img src="{{childitems.image}}" class="img-responsive" alt="Cinque Terre" (click)="getDetails(childitems.sku)">
@@ -42,7 +45,7 @@
 
 </html>
 
-<app-cart [savecurrentTileProduct]='saveProductDetails'></app-cart>
+ <!-- <app-cart [skuidtesting]='skuidtesting'></app-cart>  -->
 
 
 

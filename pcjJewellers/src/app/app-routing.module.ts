@@ -20,6 +20,7 @@ import { TabsComponent } from 'src/app/header/tabs/tabs.component';
 import { DropdownsComponent } from 'src/app/subheader/dropdowns/dropdowns.component';
 import { MainbodyComponent } from 'src/app/mainbody/mainbody.component';
 import { ProductDetailComponent } from 'src/app/Product/product-detail/product-detail.component';
+import { UserProfileComponent } from 'src/app/subheader/user-profile/user-profile.component';
 
 const appRoutes:Routes=[
   {
@@ -65,6 +66,14 @@ const appRoutes:Routes=[
               component:ProductListComponent,
               canActivate: [AuthGuard],
               canActivateChild: [AuthGuard],
+              children:[
+                {
+                  path:'cart',
+                  component:CartComponent,
+                  canActivate: [AuthGuard],
+                  canActivateChild: [AuthGuard],
+                },
+              ]
             },
             {
               path:'productDetail/:id',
@@ -87,24 +96,26 @@ const appRoutes:Routes=[
                canActivateChild: [AuthGuard],
              },
              {
-               path:'cart',
-               component:CartComponent,
-               canActivate: [AuthGuard],
-               canActivateChild: [AuthGuard],
-               
-             },
+              path:'userProfile',
+              component:UserProfileComponent,
+              canActivate: [AuthGuard],
+              canActivateChild: [AuthGuard],
+            },
+             
              {
                path:'favorites',
                component:FavoritesComponent,
                canActivate: [AuthGuard],
                canActivateChild: [AuthGuard],
-             },
+             }
           ]
+          
         }
       ]
     }
     
     ]
+    
   }
 
 

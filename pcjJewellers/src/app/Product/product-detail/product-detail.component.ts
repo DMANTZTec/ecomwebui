@@ -20,7 +20,7 @@ export class ProductDetailComponent implements OnInit {
   @Input() currentTileProduct:Product;
  
   private id;
-  Skus:Skus[]=[];
+  //Skus:Skus[]=[];
   private sku=2;
   private productListService;
   private catalog_id=0;
@@ -33,6 +33,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params=>{
     this.id=+params['id'];
+    console.log(this.id);
     const inputParam1=new FilterCriteria();
     inputParam1.catalog_id=this.catalog_id;
     inputParam1.filterEnabled=this.filterEnabled;
@@ -49,17 +50,12 @@ export class ProductDetailComponent implements OnInit {
       },
       error=>console.log(error)
     );
-    this._subscription = this._dropdownNotifyService.notifyObservable.subscribe(
-      data => {
-        console.log(data);
-       // this.loadcontent = false;
-        
-      });
+   
     }
     );
   }
   OnClicked(){
-    this.currentproductdetails=this.ProductsList.filter(product =>product.productSkus.find(item=>item.sku==this.id));
+   // this.currentproductdetails=this.ProductsList.filter(product =>product.productSkus.find(item=>item.sku==this.id));
     console.log(this.currentproductdetails);
   }
   

@@ -14,19 +14,10 @@
       <div class="col-md-3 loginpad">
         <ul class="list-inline">
           <li *ngFor="let loginLink of loginLinks"><a [routerLink]="loginLink.link">{{loginLink.label}}</a></li>
-          <i data-count="2" class="fa fa-shopping-cart fa-5x fa-border icon-grey badge">cart</i>
+          <button type="button" (click)="viewcart()"> <i class="fa fa-shopping-cart fa-5x fa-border icon-grey badge">cart{{cartLength}}</i></button>
+          <!-- <app-cart></app-cart> -->
         </ul>
-        <!--<ul class="list-inline">
-          <li><a routerLink="/login" target="_self" title="Login">
-              Login </a></li>
-          <li><a routerLink="/register" target="_self" title="Register">
-              Register </a></li>
-          <li><a routerLink="/favorites" target="_self" title="Like"> <i class="fa fa-heart-o" aria-hidden="true"></i>
-          </a></li>
-          <li><a routerLink="/cart" target="_self" title="Shoping-kart">
-              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-          </a></li>
-        </ul>-->
+       
 
       </div>
     </div>
@@ -100,3 +91,4 @@
     </div>
 </div>
 <router-outlet></router-outlet>
+<!-- <app-cart (cartValueChanged)='displayCounter($event)'></app-cart> -->

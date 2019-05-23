@@ -37,6 +37,24 @@ import { ProductDetailComponent } from './Product/product-detail/product-detail.
 import { ProductDetailTileComponent } from './Product/product-detail/product-detail-tile/product-detail-tile.component';
 import { OrderService } from 'src/app/sharedServices/order.service';
 import { ProductDetailService } from 'src/app/sharedServices/product-detail.service';
+import {SocialLoginModule,AuthServiceConfig,GoogleLoginProvider,FacebookLoginProvider} from 'ng4-social-login';
+import { UserProfileComponent } from './subheader/user-profile/user-profile.component';
+
+const config=new AuthServiceConfig([
+  {
+    id:GoogleLoginProvider.PROVIDER_ID,
+    provider:new GoogleLoginProvider('841770572040-27guip1mtkclcrh7d74jau6u6u006ufv.apps.googleusercontent.com')
+  },
+  {
+    id:FacebookLoginProvider.PROVIDER_ID,
+    provider:new FacebookLoginProvider('2417704505125916')
+  }
+],false);
+
+export function provideConfig(){
+  return config;
+}
+
 
 @NgModule({
   declarations: [
@@ -63,7 +81,8 @@ import { ProductDetailService } from 'src/app/sharedServices/product-detail.serv
    
     AlertComponent,
     ProductDetailComponent,
-    ProductDetailTileComponent
+    ProductDetailTileComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -73,15 +92,22 @@ import { ProductDetailService } from 'src/app/sharedServices/product-detail.serv
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    MatMenuModule
+    MatMenuModule,
+    SocialLoginModule
   ],
   providers: [
+    
     AlertService,
     ProductListService,
     AuthenticationService,
     UserService,
     OrderService,
-  ProductDetailService],
+    [LoginComponent,UserProfileComponent],
+    
+  ProductDetailService,
+{
+  provide:AuthServiceConfig,useFactory:provideConfig
+}],
     bootstrap: [AppComponent]
   })
 export class AppModule { }

@@ -1,5 +1,9 @@
-<a href="#" class="notification">
+ <!-- <a href="#" class="notification">
     <span>Inbox</span>
-    <span class="badge">3</span>
-  </a>
-<button (click)="viewCart(product)" type=”button”>viewCart</button>
+    <span class="badge">{{cartLength}}</span>
+  </a>  -->
+<!-- <button (click)="viewCart()" type=”button”>viewCart</button> -->
+
+<!-- {{currentproductdetails[0].productName}} -->
+<!-- <button type="button" (click)="displayCounter($event)"> <i data-count="2" class="fa fa-shopping-cart fa-5x fa-border icon-grey badge">cart</i></button> -->
+<button type="button" > <i data-count="2" class="fa fa-shopping-cart fa-5x fa-border icon-grey badge">cart{{cartLength}}</i></button>

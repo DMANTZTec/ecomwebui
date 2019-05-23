@@ -24,6 +24,16 @@
 		password: string;
 		firstName: string;
 		lastName: string;
+		mobileNumber:number;
+	}
+	export class LoginDetails{
+		email_id: string;
+		password: string;
+		firstName: string;
+		lastName: string;
+		loginStatus:string;
+		mobileNumber:number;
+		user_id:number;
 	}
 	export class Response{
 		response:string;
@@ -39,6 +49,7 @@
 		productId:number;
 		productManufacturerName:string;
 		brandName:string;
+		productName:string;
 		productSkus:Skus;
 
 	  }
@@ -86,4 +97,7 @@
 	export class UpdateOrderResponse{
 		totalQuantity:number ;
 		status:string ;
+	}
+	export class ResetPasswordStatus{
+		status:string;
 	}

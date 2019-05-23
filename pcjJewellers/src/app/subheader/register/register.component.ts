@@ -26,9 +26,13 @@ export class RegisterComponent implements OnInit {
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
         email_id: ['', Validators.required],
-        password: ['', [Validators.required, Validators.minLength(6)]]
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        mobileNumber:['',[Validators.required]]
     });
     
+}
+Login(){
+    this.router.navigate(['/main/header/subheader/login']); 
 }
 
 // convenience getter for easy access to form fields
